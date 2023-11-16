@@ -1,14 +1,14 @@
 {
-  "background_color": "#eb1111",
-  "description": "mondo la mejor app de alerta de mesas para examenes",
+  "background_color": "#ffffff",
+  "description": "La mejor app para tener alertar de las mesas de examenes",
   "dir": "ltr",
   "display": "standalone",
   "name": "mondo",
   "orientation": "any",
   "scope": "/",
-  "short_name": "mondo",
+  "short_name": "mon",
   "start_url": "/",
-  "theme_color": "#d43069",
+  "theme_color": "#ffffff",
   "categories": [
     "education"
   ],
@@ -21,10 +21,10 @@
   ],
   "shortcuts": [
     {
-      "name": "mondo",
-      "url": "https://mondo-front.vercel.app/",
-      "description": ""
+      "name": "mondito",
+      "url": "mondi",
+      "description": "dasdas"
     }
   ],
-  "id": "mondo"
+  "id": "mondito"
 }
