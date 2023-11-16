@@ -15,8 +15,9 @@
   "screenshots": [],
   "icons": [
     {
-      "src": "android/android-launchericon-512-512.png",
-      "sizes": "620x620"
+      "src": "ImagenDePajarito.png",
+      "sizes": "512x512",
+      "type": "image/webp"
     }
   ],
   "shortcuts": [
