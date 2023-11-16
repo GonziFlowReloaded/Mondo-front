@@ -3,8 +3,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import Logo from "../assets/logo.png";
-import google from "../assets/Google.svg";
-import GAuth from "../components/GAuth";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -106,7 +105,7 @@ const Login = () => {
             </form>
 
             <div className="flex flex-col justify-center items-center   mt-20 gap-2">
-              <p className="font-semibold">Iniciar Sesión con</p>
+              
               {/* <button className="   font-semibold flex justify-center items-center gap-2 border-black rounded-xl p-3 bg-gray-200 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +132,7 @@ const Login = () => {
                 Google
               </button> */}
 
-              <GAuth/> 
+              
             </div>
           </div>
         </div>
