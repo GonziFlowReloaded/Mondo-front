@@ -1,20 +1,26 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mondo Appp</title>
-    <link rel="manifest" href="./manifest.json"/>
-    <link rel="shortcut icon" href="./LargeTile.scale-125.png" type="image/x-icon"/>
-  </head>
-  <body class="bg-gradient-to-r from-rose-700 to-pink-600 overflow-hidden ">
-    <div id="root"></div>
-    <script>
-      if (typeof navigator.serviceWorker !== 'undefined') {
-        navigator.serviceWorker.register('/sw.js', { scope:'/' });
-      }
-    </script>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Mondo Appp</title>
+      <link rel="manifest" href="./manifest.json"/>
+      <link rel="shortcut icon" href="./LargeTile.scale-125.png" type="image/x-icon"/>
+    </head>
+    <body class="bg-gradient-to-r from-rose-700 to-pink-600 overflow-hidden ">
+      <div id="root"></div>
+      <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+              console.log('Service Worker registrado con éxito:', registration);
+            })
+            .catch(error => {
+              console.log('Error al registrar el Service Worker:', error);
+            });
+        }
+      </script>
+      <script type="module" src="/src/main.jsx"></script>
+    </body>
+  </html>
