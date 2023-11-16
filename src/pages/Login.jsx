@@ -86,7 +86,7 @@ const Login = () => {
                   className="text-slate-900  font-semibold  text-sm"
                   htmlFor="email"
                 >
-                  PASSWORD
+                  PASSWORDd
                 </label>
                 <input
                   placeholder="Ingresa tu contraseña"
