@@ -10,11 +10,11 @@
   </head>
   <body class="bg-gradient-to-r from-rose-700 to-pink-600 overflow-hidden ">
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
     <script>
       if (typeof navigator.serviceWorker !== 'undefined') {
         navigator.serviceWorker.register('sw.js')
       }
-  </script>
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
