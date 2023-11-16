@@ -7,14 +7,15 @@
       <title>Mondo Appp</title>
       <link rel="manifest" href="./manifest.json"/>
       <link rel="shortcut icon" href="./LargeTile.scale-125.png" type="image/x-icon"/>
+
+    </head>
+    <body class="bg-gradient-to-r from-rose-700 to-pink-600 overflow-hidden ">
+      <div id="root"></div>
+      <script type="module" src="/src/main.jsx"></script>
       <script>
         if (typeof navigator.serviceWorker !== 'undefined') {
           navigator.serviceWorker.register('/sw.js')
         }
       </script>
-    </head>
-    <body class="bg-gradient-to-r from-rose-700 to-pink-600 overflow-hidden ">
-      <div id="root"></div>
-      <script type="module" src="/src/main.jsx"></script>
     </body>
   </html>
