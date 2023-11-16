@@ -5,12 +5,22 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="/manifest.json"/>
-    <link rel="sw" href="/sw.js"/>
     <link rel="shortcut icon" href="/windows11/SmallTile.scale-400.png" type="image/x-icon"/>
     <title>Mondo App</title>
   </head>
   <body class="bg-gradient-to-r from-rose-700 to-pink-600 overflow-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('Service Worker registrado con éxito:', registration);
+          })
+          .catch(error => {
+            console.log('Error al registrar el Service Worker:', error);
+          });
+      }
+    </script>
   </body>
 </html>
