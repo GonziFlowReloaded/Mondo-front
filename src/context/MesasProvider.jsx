@@ -7,7 +7,9 @@ const MesasContext = createContext();
 const MesasProvider = ({ children }) => {
   const [mesas, setMesas] = useState([]);
   const [alerta, setAlerta] = useState({});
-  const [profesor, setProfesor]=useState({})
+  const [profesor, setProfesor] = useState({});
+  const [mesa, setMesa] = useState({});
+  const [cargando, setCargando] = useState(false);
 
   const submitMesa = async (mesa) => {
     try {
@@ -38,7 +40,9 @@ const MesasProvider = ({ children }) => {
     }
   };
 
-  const submitColaborador = async (dni) => {
+  const submitProfesor = async (email, categoria) => {
+    console.log(email, categoria);
+
     try {
       const token = localStorage.getItem("token");
       if (!token) return;
@@ -52,7 +56,7 @@ const MesasProvider = ({ children }) => {
 
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/mesas/profesores`,
-        { dni },
+        { email },
         config
       );
       setProfesor(data);
@@ -67,6 +71,56 @@ const MesasProvider = ({ children }) => {
     }
   };
 
+  const obtenerMesa = async (id) => {
+    setCargando(true);
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const { data } = await axios(
+        `${import.meta.env.VITE_BACKEND_URL}/api/mesas/${id}`,
+        config
+      );
+      setMesa(data);
+    } catch (error) {
+      console.log(error);
+    }
+
+    setCargando(false);
+  };
+
+  const agregarProfesor = async (email) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/mesas/profesores/${mesa._id}`,
+        email,
+        config
+      );
+
+      setAlerta({ msg: data.msg });
+      setProfesor({});
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <MesasContext.Provider
       value={{
@@ -74,8 +128,12 @@ const MesasProvider = ({ children }) => {
         setAlerta,
         alerta,
         submitMesa,
-        submitColaborador,
-        profesor
+        submitProfesor,
+        mesa,
+        profesor,
+        obtenerMesa,
+        cargando,
+        agregarProfesor,
       }}
     >
       {children}
