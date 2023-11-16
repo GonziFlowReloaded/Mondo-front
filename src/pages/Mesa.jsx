@@ -16,11 +16,11 @@ const Mesa = () => {
     obtenerMesa(params.id);
   }, []);
 
-const handleClick = ()=>{
-  if (confirm("Deseas eliminar este proyecto?")){
-    eliminarMesa(params.id)
-  }
-}
+  const handleClick = () => {
+    if (confirm("Deseas eliminar este proyecto?")) {
+      eliminarMesa(params.id);
+    }
+  };
 
   console.log(mesa);
 
@@ -34,15 +34,22 @@ const handleClick = ()=>{
     <div className="bg-white f shadow mt-10 rounded-lg p-5">
       <div className="flex  justify-between items-center ">
         <h1 className="font-bold text-4xl mb-4">{asignatura}</h1>
-        <div className="flex gap-4 w-1/4">
-          
-          <Link to={`../editar/${params.id}`} className="bg-yellow-600 w-1/2 text-center text-white font-bold p-3 rounded-xl">
-            Editar
-          </Link>
-          <button onClick={handleClick} className="bg-red-600 text-white w-1/2 font-bold p-3 text-center rounded-xl">
-            Eliminar
-          </button>
-        </div>
+        {auth.rol == !"profesor" && (
+          <div className="flex gap-4 w-1/4">
+            <Link
+              to={`../editar/${params.id}`}
+              className="bg-yellow-600 w-1/2 text-center text-white font-bold p-3 rounded-xl"
+            >
+              Editar
+            </Link>
+            <button
+              onClick={handleClick}
+              className="bg-red-600 text-white w-1/2 font-bold p-3 text-center rounded-xl"
+            >
+              Eliminar
+            </button>
+          </div>
+        )}
       </div>
       <div className="">
         <p className="text-gray-600">
@@ -73,12 +80,14 @@ const handleClick = ()=>{
         <div className="flex items-center justify-between mt-10">
           <p className="font-bold text-xl">Profesores</p>
 
-          <Link
-            className="bg-slate-800 text-white p-3 rounded-xl uppercase font-bold"
-            to={`../mesas/nuevo-profesor/${mesa._id}`}
-          >
-            Agregar
-          </Link>
+          {auth.rol == !"profesor" && (
+            <Link
+              className="bg-slate-800 text-white p-3 rounded-xl uppercase font-bold"
+              to={`../mesas/nuevo-profesor/${mesa._id}`}
+            >
+              Agregar
+            </Link>
+          )}
         </div>
         <div className="bg-white shadow mt-10 rounded-lg">
           {mesa.profesor?.length ? (
@@ -90,10 +99,8 @@ const handleClick = ()=>{
           )}
         </div>
       </div>
-      <ModalEliminarProfesor/>
+      <ModalEliminarProfesor />
     </div>
-
-    
   );
 };
 

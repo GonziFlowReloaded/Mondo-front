@@ -50,17 +50,17 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="bg-white w-[1100px]  h-[750px] rounded-3xl overflow-auto shadow-2xl flex">
-        <div className="w-1/2 flex justify-center  ">
+        <div className="w-1/2 flex md:flex-row flex-col justify-center  ">
           <div
             className="w-full bg-cover bg-center"
             style={{ backgroundImage: `url(${Logo})` }}
           ></div>
         </div>
-        <div className="w-1/2">
+        <div className="md:w-1/2">
           <h1 className="text-center text-2xl font-bold mt-20 ">
             Iniciar Sesión
           </h1>
-          <div className=" w-3/4 mx-20 ">
+          <div className=" md:w-3/4 mx-20 ">
             <form onSubmit={handleSubmit}>
               <div className="mt-10 mb-4 ">
                 <label

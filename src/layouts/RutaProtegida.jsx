@@ -19,7 +19,7 @@ const RutaProtegida = () => {
           <div className="md:flex md:h-screen">
             <Sidebar />
 
-            <main className="p-10 flex-1 md:h-screen">
+            <main className="p-10 flex-1 h-screen">
               <Outlet />
             </main>
           </div>

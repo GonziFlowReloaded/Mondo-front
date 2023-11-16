@@ -67,12 +67,14 @@ const Sidebar = () => {
         </div>
       )} */}
 
-      <Link
-        className="bg-slate-900 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-lg"
-        to="crear-mesa"
-      >
-        Nueva Mesa
-      </Link>
+      {auth.rol ==! "profesor" && (
+        <Link
+          className="bg-slate-900 w-full p-3 text-white uppercase font-bold block md:mt-5 text-center rounded-lg"
+          to="crear-mesa"
+        >
+          Nueva Mesa
+        </Link>
+      )}
     </aside>
   );
 };
