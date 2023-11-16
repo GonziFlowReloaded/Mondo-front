@@ -1,0 +1,30 @@
+{
+  "background_color": "#eb1111",
+  "description": "mondo la mejor app de alerta de mesas para examenes",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "mondo",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "mondo",
+  "start_url": "/",
+  "theme_color": "#d43069",
+  "categories": [
+    "education"
+  ],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "windows11/Square44x44Logo.altform-lightunplated_targetsize-256.png",
+      "sizes": "620x620"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "mondo",
+      "url": "https://mondo-front.vercel.app/",
+      "description": ""
+    }
+  ],
+  "id": "mondo"
+}
