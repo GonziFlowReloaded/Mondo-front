@@ -12,7 +12,7 @@
     <div id="root"></div>
     <script>
       if (typeof navigator.serviceWorker !== 'undefined') {
-        navigator.serviceWorker.register('/sw.js', { scope:'/' });
+        navigator.serviceWorker.register('/sw.js');
       }
     </script>
     <script type="module" src="/src/main.jsx"></script>
