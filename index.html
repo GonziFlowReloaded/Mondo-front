@@ -11,16 +11,6 @@
   <body class="bg-gradient-to-r from-rose-700 to-pink-600 overflow-hidden ">
     <div id="root"></div>
     <script>
-      if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js') // Ruta al archivo de service worker
-    .then((registration) => {
-      console.log('Service Worker registrado con éxito:', registration);
-    })
-    .catch((error) => {
-      console.error('Error al registrar el Service Worker:', error);
-    });
-}
-
     </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
