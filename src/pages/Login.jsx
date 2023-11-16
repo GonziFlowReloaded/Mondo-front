@@ -70,7 +70,7 @@ const Login = () => {
                   className="text-slate-900 font-semibold text-sm"
                   htmlFor="email"
                 >
-                  EMAIL
+                  CORREO
                 </label>
                 <input
                   placeholder="Ingresa tu Email"
