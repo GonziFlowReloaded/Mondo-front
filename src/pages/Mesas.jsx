@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ModalDetalles from "../components/ModalDetalles";
 import PreviewMesa from "../components/PreviewMesa";
 
 const Mesas = () => {
@@ -61,6 +60,7 @@ const Mesas = () => {
           </p>
         )}
       </div>
+      
     </>
   );
 };

@@ -4,14 +4,10 @@ import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import Logo from "../assets/logo.png";
 
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alerta, setAlerta] = useState({});
-
-
- 
 
   const { setAuth } = useAuth();
   const navigate = useNavigate();
@@ -38,18 +34,16 @@ const Login = () => {
 
       setAuth(data);
 
-    
-
-      if (data?.rol === 'admin') {
-        navigate('/admin');
-      } else if (data.rol === 'profesor') {
-        navigate('/docentes');
+      if (data?.rol === "admin") {
+        navigate("/admin");
+      } else if (data.rol === "profesor") {
+        navigate("/docentes");
       }
     } catch (error) {
       setAlerta({ msg: error.response?.data?.msg });
     }
   };
-  
+
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="bg-white w-[1100px]  h-[750px] rounded-3xl overflow-auto shadow-2xl flex">
@@ -105,7 +99,6 @@ const Login = () => {
             </form>
 
             <div className="flex flex-col justify-center items-center   mt-20 gap-2">
-              
               {/* <button className="   font-semibold flex justify-center items-center gap-2 border-black rounded-xl p-3 bg-gray-200 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -131,8 +124,6 @@ const Login = () => {
                 </svg>
                 Google
               </button> */}
-
-              
             </div>
           </div>
         </div>

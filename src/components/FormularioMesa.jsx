@@ -1,25 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import useMesas from "../hooks/useMesas";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 
-
 const FormularioMesa = () => {
- 
+  const [id, setId] = useState(null);
+  const [llamado, setLlamado] = useState("");
   const [asignatura, setAsignatura] = useState("");
   const [aula, setAula] = useState("");
   const [fecha, setFecha] = useState("");
   const [hora, setHora] = useState("");
   const [alumnos, setAlumnos] = useState("");
-  const [llamado, setLlamado] = useState("");
   const [modalidad, setModalidad] = useState("");
-  
+
+  const params = useParams();
+
+  const { auth } = useAuth();
 
   const navigate = useNavigate();
 
-  const { alerta, setAlerta, submitMesa } = useMesas();
-  
+  const { alerta, setAlerta, submitMesa, mesa } = useMesas();
+
+  useEffect(() => {
+    if (params.id) {
+      setId(mesa._id)
+      setLlamado(mesa.llamado);
+      setAsignatura(mesa.asignatura);
+      setModalidad(mesa.modalidad);
+      setAula(mesa.aula);
+      setFecha(mesa.fecha?.split('T')[0]);
+      setHora(mesa.hora)
+      setAlumnos(mesa.alumnos)
+    } else {
+      console.log("Nuevo proyecto");
+    }
+  }, [params]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,17 +51,18 @@ const FormularioMesa = () => {
     }
 
     await submitMesa({
+      id,
+      llamado,
       asignatura,
       aula,
       fecha,
       hora,
       alumnos,
-      llamado,
+
       modalidad,
     });
 
-  
-
+    setId(null)
     setAsignatura("");
     setAula("");
     setFecha("");
@@ -53,7 +71,13 @@ const FormularioMesa = () => {
 
     setTimeout(() => {
       setAlerta({});
-      navigate("/admin");
+
+      // Check user role and navigate accordingly
+      if (auth.rol === "admin") {
+        navigate("/admin");
+      } else if (auth.rol === "profesor") {
+        navigate("/docentes");
+      }
     }, 3000);
   };
 
@@ -80,8 +104,8 @@ const FormularioMesa = () => {
             onChange={(e) => setLlamado(e.target.value)}
           >
             <option value="">Selecciona un llamado</option>
-            <option value="vocal">1er llamado</option>
-            <option value="presidente">2do llamado</option>
+            <option value="1er llamado">1er llamado</option>
+            <option value="2do llamado">2do llamado</option>
           </select>
         </div>
 
@@ -120,8 +144,8 @@ const FormularioMesa = () => {
               onChange={(e) => setModalidad(e.target.value)}
             >
               <option value="">Selecciona una modalidad</option>
-              <option value="vocal">Presencial</option>
-              <option value="presidente">Virtual</option>
+              <option value="Presencial">Presencial</option>
+              <option value="Virtual">Virtual</option>
             </select>
           </div>
         </div>
@@ -205,7 +229,7 @@ const FormularioMesa = () => {
         <input
           className="bg-slate-800 w-full p-3 uppercase font-bold text-white rounded-lg cursor-pointer hover:bg-slate-900"
           type="submit"
-          value="Crear Mesa"
+          value={id? "Actualizar Mesa": "Crear Mesa"}
         />
       </form>
     </div>

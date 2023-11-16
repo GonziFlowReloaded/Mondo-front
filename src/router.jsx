@@ -11,6 +11,7 @@ import MesasDocentes from "./pages/MesasDocentes";
 import NuevaMesa from "./pages/NuevaMesa";
 import Mesa from "./pages/Mesa";
 import NuevoProfesor from "./pages/NuevoProfesor";
+import EditarMesa from "./pages/EditarMesa";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,10 @@ const router = createBrowserRouter([
         path: "mesas/:id",
         element: <Mesa />,
       },
-      
+      {
+        path: "editar/:id",
+        element: <EditarMesa />,
+      },
     ],
   },
   {
@@ -45,8 +49,20 @@ const router = createBrowserRouter([
         element: <MesasDocentes />,
       },
       {
+        path: "crear-mesa",
+        element: <NuevaMesa />,
+      },
+      {
+        path: "mesas/nuevo-profesor/:id",
+        element: <NuevoProfesor />,
+      },
+      {
         path: "mesas/:id",
         element: <Mesa />,
+      },
+      {
+        path: "editar/:id",
+        element: <EditarMesa />,
       },
     ],
   },

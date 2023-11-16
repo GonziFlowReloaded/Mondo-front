@@ -3,7 +3,6 @@ import useAuth from "../hooks/useAuth";
 import { useState } from "react";
 import axios from "axios";
 
-
 const Sidebar = () => {
   const { auth } = useAuth();
   const [tipoAlerta, setTipoAlerta] = useState("gmail");
@@ -44,7 +43,7 @@ const Sidebar = () => {
         {auth.rol}: {auth.nombre}
       </p>
 
-      {auth.rol === "profesor" && (
+      {/* {auth.rol === "profesor" && (
         <div className="bg-white shadow mt-10 rounded-lg p-5">
           <h2 className="font-bold text-2xl mb-4">Configurar Alertas</h2>
           <form className="flex flex-col">
@@ -66,15 +65,14 @@ const Sidebar = () => {
             </button>
           </form>
         </div>
-      )}
-      {auth.rol === "admin" && (
-        <Link
-          className="bg-slate-900 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-lg"
-          to="crear-mesa"
-        >
-          Nueva Mesa
-        </Link>
-      )}
+      )} */}
+
+      <Link
+        className="bg-slate-900 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-lg"
+        to="crear-mesa"
+      >
+        Nueva Mesa
+      </Link>
     </aside>
   );
 };

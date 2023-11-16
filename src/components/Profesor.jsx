@@ -1,6 +1,8 @@
 import React from "react";
+import useMesas from "../hooks/useMesas";
 
 const Profesor = ({ profe }) => {
+  const{handleModalEliminarProfesor} = useMesas()
   const { nombre, email } = profe;
   return (
     <div className="border-b bg-gray-100 p-5 flex justify-between items-center">
@@ -10,7 +12,7 @@ const Profesor = ({ profe }) => {
       </div>
 
       <div>
-        <button className="p-3 text-white bg-red-600 uppercase font-bold rounded-lg">
+        <button onClick={()=>handleModalEliminarProfesor(profe)} className="p-3 text-white bg-red-600 uppercase font-bold rounded-lg">
           Eliminar
         </button>
       </div>
