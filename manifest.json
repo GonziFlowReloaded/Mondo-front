@@ -1,0 +1,31 @@
+{
+  "background_color": "#ffffff",
+  "description": "La mejor app para tener alertar de las mesas de examenes",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "mondo",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "mon",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "categories": [
+    "education"
+  ],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "ImagenDePajarito.png",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "mondito",
+      "url": "mondi",
+      "description": "dasdas"
+    }
+  ],
+  "id": "mondito"
+}

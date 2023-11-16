@@ -9,34 +9,49 @@ import Mesas from "./pages/Mesas";
 import RutaProtegidaDocentes from "./layouts/RutaProtegidaDocentes";
 import MesasDocentes from "./pages/MesasDocentes";
 import NuevaMesa from "./pages/NuevaMesa";
+import Mesa from "./pages/Mesa";
+import NuevoProfesor from "./pages/NuevoProfesor";
 
 const router = createBrowserRouter([
   {
     path: "/admin",
-    element: <RutaProtegida/>,
+    element: <RutaProtegida />,
     children: [
       {
         index: true,
         element: <Mesas />,
       },
       {
-        path:"crear-mesa",
-        element: <NuevaMesa/>
-      }
+        path: "crear-mesa",
+        element: <NuevaMesa />,
+      },
+      {
+        path: "mesas/nuevo-profesor/:id",
+        element: <NuevoProfesor />,
+      },
+      {
+        path: "mesas/:id",
+        element: <Mesa />,
+      },
+      
     ],
   },
   {
     path: "/docentes",
-    element: <RutaProtegidaDocentes/>,
+    element: <RutaProtegidaDocentes />,
     children: [
       {
         index: true,
         element: <MesasDocentes />,
       },
+      {
+        path: "mesas/:id",
+        element: <Mesa />,
+      },
     ],
   },
   {
-    path: "/auth",
+    path: "/",
     element: <AuthLayout />,
     children: [
       {
@@ -44,12 +59,11 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path:'/auth/registro',
-        element:<Registro/>
-      }
+        path: "/auth/registro",
+        element: <Registro />,
+      },
     ],
   },
-
 ]);
 
 export default router;

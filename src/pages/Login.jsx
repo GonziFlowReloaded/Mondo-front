@@ -3,12 +3,15 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import Logo from "../assets/logo.png";
-import google from "../assets/Google.svg";
+
 
 const Login = () => {
-  const [dni, setDni] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alerta, setAlerta] = useState({});
+
+
+ 
 
   const { setAuth } = useAuth();
   const navigate = useNavigate();
@@ -16,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if ([dni, password].includes("")) {
+    if ([email, password].includes("")) {
       setAlerta({ msg: "Todos los campos son obligatorios" });
 
       return;
@@ -26,7 +29,7 @@ const Login = () => {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/usuarios/login`,
         {
-          dni,
+          email,
           password,
         }
       );
@@ -46,7 +49,7 @@ const Login = () => {
       setAlerta({ msg: error.response?.data?.msg });
     }
   };
-
+  
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="bg-white w-[1100px]  h-[750px] rounded-3xl overflow-auto shadow-2xl flex">
@@ -65,16 +68,16 @@ const Login = () => {
               <div className="mt-10 mb-4 ">
                 <label
                   className="text-slate-900 font-semibold text-sm"
-                  htmlFor="dni"
+                  htmlFor="email"
                 >
-                  DNI
+                  CORREO
                 </label>
                 <input
-                  placeholder="Ingresa tu DNI"
+                  placeholder="Ingresa tu Email"
                   className="w-full bg-gray-200 placeholder:px-3 p-3 rounded-xl"
-                  type="text"
-                  value={dni}
-                  onChange={(e) => setDni(e.target.value)}
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="mt-10 mb-4 ">
@@ -102,8 +105,8 @@ const Login = () => {
             </form>
 
             <div className="flex flex-col justify-center items-center   mt-20 gap-2">
-              <p className="font-semibold">Iniciar Sesión con</p>
-              <button className="   font-semibold flex justify-center items-center gap-2 border-black rounded-xl p-3 bg-gray-200 ">
+              
+              {/* <button className="   font-semibold flex justify-center items-center gap-2 border-black rounded-xl p-3 bg-gray-200 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="20"
@@ -127,7 +130,9 @@ const Login = () => {
                   />
                 </svg>
                 Google
-              </button>
+              </button> */}
+
+              
             </div>
           </div>
         </div>
