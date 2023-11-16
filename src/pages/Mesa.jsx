@@ -34,7 +34,7 @@ const Mesa = () => {
     <div className="bg-white f shadow mt-10 rounded-lg p-5">
       <div className="flex  justify-between items-center ">
         <h1 className="font-bold text-4xl mb-4">{asignatura}</h1>
-        {auth.rol == !"profesor" && (
+        {auth.rol ==="admin" && (
           <div className="flex gap-4 w-1/4">
             <Link
               to={`../editar/${params.id}`}
@@ -80,7 +80,7 @@ const Mesa = () => {
         <div className="flex items-center justify-between mt-10">
           <p className="font-bold text-xl">Profesores</p>
 
-          {auth.rol == !"profesor" && (
+          {auth.rol ==="admin" && (
             <Link
               className="bg-slate-800 text-white p-3 rounded-xl uppercase font-bold"
               to={`../mesas/nuevo-profesor/${mesa._id}`}
