@@ -133,7 +133,7 @@ const Login = () => {
                 Google
               </button> */}
 
-              <GAuth/> 
+              
             </div>
           </div>
         </div>
