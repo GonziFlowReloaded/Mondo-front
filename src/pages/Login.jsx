@@ -85,7 +85,7 @@ const Login = () => {
                   className="text-slate-900  font-semibold  text-sm"
                   htmlFor="email"
                 >
-                  PASSWORDd
+                  PASSWORD
                 </label>
                 <input
                   placeholder="Ingresa tu contraseña"
@@ -105,7 +105,7 @@ const Login = () => {
             </form>
 
             <div className="flex flex-col justify-center items-center   mt-20 gap-2">
-              <p className="font-semibold">Iniciar Sesión con</p>
+              
               {/* <button className="   font-semibold flex justify-center items-center gap-2 border-black rounded-xl p-3 bg-gray-200 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
