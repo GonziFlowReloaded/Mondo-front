@@ -15,7 +15,7 @@
   "screenshots": [],
   "icons": [
     {
-      "src": "windows11/SmallTile.scale-400.png",
+      "src": "android/android-launchericon-512-512.png",
       "sizes": "620x620"
     }
   ],
