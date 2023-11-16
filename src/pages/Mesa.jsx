@@ -35,6 +35,7 @@ const handleClick = ()=>{
       <div className="flex  justify-between items-center ">
         <h1 className="font-bold text-4xl mb-4">{asignatura}</h1>
         <div className="flex gap-4 w-1/4">
+          
           <Link to={`../editar/${params.id}`} className="bg-yellow-600 w-1/2 text-center text-white font-bold p-3 rounded-xl">
             Editar
           </Link>
