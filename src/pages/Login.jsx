@@ -3,8 +3,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import Logo from "../assets/logo.png";
-import google from "../assets/Google.svg";
-import GAuth from "../components/GAuth";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
