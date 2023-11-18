@@ -25,14 +25,14 @@ const FormularioMesa = () => {
 
   useEffect(() => {
     if (params.id) {
-      setId(mesa._id)
+      setId(mesa._id);
       setLlamado(mesa.llamado);
       setAsignatura(mesa.asignatura);
       setModalidad(mesa.modalidad);
       setAula(mesa.aula);
-      setFecha(mesa.fecha?.split('T')[0]);
-      setHora(mesa.hora)
-      setAlumnos(mesa.alumnos)
+      setFecha(mesa.fecha?.split("T")[0]);
+      setHora(mesa.hora);
+      setAlumnos(mesa.alumnos);
     } else {
       console.log("Nuevo proyecto");
     }
@@ -62,7 +62,7 @@ const FormularioMesa = () => {
       modalidad,
     });
 
-    setId(null)
+    setId(null);
     setAsignatura("");
     setAula("");
     setFecha("");
@@ -229,7 +229,7 @@ const FormularioMesa = () => {
         <input
           className="bg-slate-800 w-full p-3 uppercase font-bold text-white rounded-lg cursor-pointer hover:bg-slate-900"
           type="submit"
-          value={id? "Actualizar Mesa": "Crear Mesa"}
+          value={id ? "Actualizar Mesa" : "Crear Mesa"}
         />
       </form>
     </div>
